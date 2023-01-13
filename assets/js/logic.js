@@ -27,9 +27,13 @@ function quiz(){
     let but3 = document.createElement("button");
     let but4 = document.createElement("button");
     but1.textContent = "1. " + questionList[questionNumber].a1;
+    but1.setAttribute("data-index", "1");
     but2.textContent = "2. " + questionList[questionNumber].a2;
+    but2.setAttribute("data-index", "2");
     but3.textContent = "3. " + questionList[questionNumber].a3;
+    but3.setAttribute("data-index", "3");
     but4.textContent = "4. " + questionList[questionNumber].a4;
+    but4.setAttribute("data-index", "4");
     listEl.appendChild(but1);
     listEl.appendChild(but2);
     listEl.appendChild(but3);
@@ -39,7 +43,7 @@ function quiz(){
 };
 
 function answerButton(){
-    
+    if 
 }
 
 // starts timer on the top right of screen
