@@ -4,11 +4,12 @@ let startScreenEl =  document.querySelector("#start-screen");
 
 let timeLeft = 75;
 
-startButtonEl.addEventListener("click", startQuiz);
-
-function startQuiz(){
-    startScreenEl.setAttribute("class", ".hide");
-}
+startScreenEl.addEventListener("click", function(event){
+    console.log(event.target);
+    if (event.target.matches("#start")){
+        startScreenEl.setAttribute("class", "hide");
+    }
+});
 
 function countdown(){
 
