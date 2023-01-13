@@ -42,8 +42,18 @@ function quiz(){
     
 };
 
-function answerButton(){
-    if 
+function answerButton(event){
+    let chosenAnswer = event.target.getAttribute("data-index");
+    let correctAnswer = questionList[questionNumber].correct;
+    if (chosenAnswer === null){
+        return
+    }
+    else if (chosenAnswer == correctAnswer){
+
+    }
+    else{
+        
+    }
 }
 
 // starts timer on the top right of screen
