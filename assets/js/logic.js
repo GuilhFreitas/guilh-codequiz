@@ -5,7 +5,7 @@ let quizEl = document.querySelector("#questions");
 let questionEl = document.querySelector("#question-title");
 let choicesEl = document.querySelector("#choices");
 
-
+let questionNumber = 0;
 let timeLeft = 75;
 
 // starts the quiz when the button is clicked
@@ -13,19 +13,23 @@ startScreenEl.addEventListener("click", function(event){
     if (event.target.matches("#start")){
         startScreenEl.setAttribute("class", "hide");
         quizEl.removeAttribute("class", "hide");
-        quiz();
+        nextQuestion();
     }
 });
 
-function quiz(){
-    let questionNumber = 0;
+function nextQuestion(){
+
     questionEl.textContent = questionList[questionNumber].q;
+
     let listEl = document.createElement("ol");
     choicesEl.appendChild(listEl);
+    listEl.addEventListener("click", answerButton);
+
     let but1 = document.createElement("button");
     let but2 = document.createElement("button");
     let but3 = document.createElement("button");
     let but4 = document.createElement("button");
+
     but1.textContent = "1. " + questionList[questionNumber].a1;
     but1.setAttribute("data-index", "1");
     but2.textContent = "2. " + questionList[questionNumber].a2;
@@ -34,6 +38,7 @@ function quiz(){
     but3.setAttribute("data-index", "3");
     but4.textContent = "4. " + questionList[questionNumber].a4;
     but4.setAttribute("data-index", "4");
+
     listEl.appendChild(but1);
     listEl.appendChild(but2);
     listEl.appendChild(but3);
@@ -43,16 +48,16 @@ function quiz(){
 };
 
 function answerButton(event){
-    let chosenAnswer = event.target.getAttribute("data-index");
-    let correctAnswer = questionList[questionNumber].correct;
-    if (chosenAnswer === null){
-        return
-    }
-    else if (chosenAnswer == correctAnswer){
-
-    }
-    else{
-        
+    if (event.target.matches("button")){
+        let chosenAnswer = event.target.getAttribute("data-index");
+        let correctAnswer = questionList[questionNumber].correct;
+        if (chosenAnswer == correctAnswer){
+            
+        }
+        else{
+            timeLeft = timeLeft - 10
+            
+        }
     }
 }
 
