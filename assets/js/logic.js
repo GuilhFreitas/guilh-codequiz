@@ -4,13 +4,15 @@ let startScreenEl =  document.querySelector("#start-screen");
 
 let timeLeft = 75;
 
+// starts the quiz when the button is clicked
 startScreenEl.addEventListener("click", function(event){
-    console.log(event.target);
     if (event.target.matches("#start")){
         startScreenEl.setAttribute("class", "hide");
+
     }
 });
 
+// starts timer on the top right of screen
 function countdown(){
 
     let timeInterval = setInterval(function() {
