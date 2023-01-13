@@ -1,7 +1,16 @@
 let timerEl = document.querySelector("#time");
+let startButtonEl = document.querySelector("#start");
+let startScreenEl =  document.querySelector("#start-screen");
+
+let timeLeft = 75;
+
+startButtonEl.addEventListener("click", startQuiz);
+
+function startQuiz(){
+    startScreenEl.setAttribute("class", ".hide");
+}
 
 function countdown(){
-    let timeLeft = 75;
 
     let timeInterval = setInterval(function() {
 
@@ -20,3 +29,4 @@ function countdown(){
     }, 1000)
 
 }
+
