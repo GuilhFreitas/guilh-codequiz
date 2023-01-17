@@ -8,6 +8,7 @@ let feedbackEl = document.querySelector("#feedback");
 let endEl = document.querySelector("#end-screen");
 let scoreEl = document.querySelector("#final-score");
 let initialEl = document.querySelector("#initials");
+let submitEl = document.querySelector("#submit");
 
 let questionNumber = 0;
 let timeLeft = 75;
@@ -23,11 +24,32 @@ startScreenEl.addEventListener("click", function(event){
     }
 });
 
+// saves initials and score to local storage, and opens highscores page when submit button is clicked
+submitEl.addEventListener("click", function(){
+
+    let initials = initialEl.value;
+    let finalScore = [initials, score];
+    let storedScores = JSON.parse(localStorage.getItem("quizScores"));
+    console.log(storedScores);
+    if (storedScores !== null){
+        storedScores.push(finalScore);
+        localStorage.setItem("quizScores", JSON.stringify(storedScores));
+    }else{
+        storedScores = [
+            [initials, score]
+        ];
+        localStorage.setItem("quizScores", JSON.stringify(finalScore));
+    }
+    window.open("./highscores.html");
+})
+
 // displays the next question
 function nextQuestion(){
 
-    if (questionNumber > questionList.length){
-        finalScore();
+    if (questionNumber === questionList.length){
+        quizEl.setAttribute("class", "hide");
+        scoreEl.textContent = score;
+        endEl.removeAttribute("class", "hide");
     }else{
         choicesEl.innerHTML = "";
         questionEl.textContent = questionList[questionNumber].q;
