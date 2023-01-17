@@ -17,17 +17,17 @@
 
 This is a simple javascript quiz application. It is a timed multiple choice quiz that runs in-browser and stores scores in local storage. The aim of this project was to demonstrate my knowledge of web APIs, specifically properties of the DOM such as events and web storage.
 
-![Screenshot of quiz start screen](images/screenshot1.png)
+![Screenshot of quiz start screen](assets/images/screenshot1.png)
 <br /><br />
 
-![Screenshot of quiz question](images/screenshot2.png)
+![Screenshot of quiz question](assets/images/screenshot2.png)
 <br /><br />
 
-![Screenshot of quiz end screen](images/screenshot3.png)
+![Screenshot of quiz end screen](assets/images/screenshot3.png)
 <br />
 <br />
 
-![Screenshot of highscore screen](images/screenshot4.png)
+![Screenshot of highscore screen](assets/images/screenshot4.png)
 
 ## Installation
 
@@ -38,7 +38,7 @@ N/A
 
 Follow this link to the deployed page:
 
-https://guilhfreitas.github.io/guilh-/
+https://guilhfreitas.github.io/guilh-codequiz/
 
 Click the "Start Quiz" button to begin the quiz and start the timer. Clicking an answer will display feedback for a short time and provide a new question, until all questions are attempted or the timer runs out. A score is displayed at the end, with the option to input initials and add it to the highscore list. Highscores are displayed on their own page.
 
