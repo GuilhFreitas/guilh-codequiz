@@ -19,6 +19,7 @@ startScreenEl.addEventListener("click", function(event){
     }
 });
 
+// displays the next question
 function nextQuestion(){
 
     choicesEl.innerHTML = "";
@@ -50,6 +51,7 @@ function nextQuestion(){
     
 };
 
+// function runs when an answer is clicked, evaluates answer, displays feedback and runs nextQuestion
 function answerButton(event){
 
     if (event.target.matches("button")){
