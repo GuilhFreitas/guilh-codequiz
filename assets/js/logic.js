@@ -111,6 +111,10 @@ function countdown(){
     let timeInterval = setInterval(function() {
         timeLeft--;
 
+        // stops countdown if quiz is completed
+        if(questionNumber === questionList.length){
+            clearInterval(timeInterval);
+        }
         if (timeLeft > 0){
             timerEl.textContent = timeLeft;
             
