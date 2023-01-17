@@ -30,17 +30,14 @@ submitEl.addEventListener("click", function(){
     let initials = initialEl.value;
     let finalScore = [initials, score];
     let storedScores = JSON.parse(localStorage.getItem("quizScores"));
-    console.log(storedScores);
     if (storedScores !== null){
         storedScores.push(finalScore);
         localStorage.setItem("quizScores", JSON.stringify(storedScores));
     }else{
-        storedScores = [
-            [initials, score]
-        ];
-        localStorage.setItem("quizScores", JSON.stringify(finalScore));
+        storedScores = [finalScore];
+        localStorage.setItem("quizScores", JSON.stringify(storedScores));
     }
-    window.open("./highscores.html");
+    window.open("./highscores.html", "_self");
 })
 
 // displays the next question
