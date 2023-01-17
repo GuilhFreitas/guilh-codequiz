@@ -4,6 +4,7 @@ let startScreenEl =  document.querySelector("#start-screen");
 let quizEl = document.querySelector("#questions");
 let questionEl = document.querySelector("#question-title");
 let choicesEl = document.querySelector("#choices");
+let feedbackEl = document.querySelector("#feedback");
 
 let questionNumber = 0;
 let timeLeft = 75;
@@ -14,11 +15,13 @@ startScreenEl.addEventListener("click", function(event){
         startScreenEl.setAttribute("class", "hide");
         quizEl.removeAttribute("class", "hide");
         nextQuestion();
+        countdown();
     }
 });
 
 function nextQuestion(){
 
+    choicesEl.innerHTML = "";
     questionEl.textContent = questionList[questionNumber].q;
 
     let listEl = document.createElement("ol");
@@ -48,16 +51,28 @@ function nextQuestion(){
 };
 
 function answerButton(event){
+
     if (event.target.matches("button")){
+
         let chosenAnswer = event.target.getAttribute("data-index");
         let correctAnswer = questionList[questionNumber].correct;
-        if (chosenAnswer == correctAnswer){
-            
+
+        if (chosenAnswer != correctAnswer){
+            timeLeft = timeLeft - 10;
+            feedbackEl.textContent = "Wrong!";
+        }else{
+            feedbackEl.textContent = "Correct!";
         }
-        else{
-            timeLeft = timeLeft - 10
+
+        feedbackEl.removeAttribute("class", "hide");
+
+        let shortDisplay = setInterval(function() {
             
-        }
+            feedbackEl.setAttribute("class", "hide");
+            clearInterval(shortDisplay);
+        }, 1000)
+        questionNumber++;
+        nextQuestion();
     }
 }
 
