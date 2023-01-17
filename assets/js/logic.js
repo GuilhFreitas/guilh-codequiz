@@ -44,9 +44,7 @@ submitEl.addEventListener("click", function(){
 function nextQuestion(){
 
     if (questionNumber === questionList.length){
-        quizEl.setAttribute("class", "hide");
-        scoreEl.textContent = score;
-        endEl.removeAttribute("class", "hide");
+        endQuiz();
     }else{
         choicesEl.innerHTML = "";
         questionEl.textContent = questionList[questionNumber].q;
@@ -108,22 +106,30 @@ function answerButton(event){
 
 // starts timer on the top right of screen, ends at 0
 function countdown(){
+    timerEl.textContent = timeLeft;
 
     let timeInterval = setInterval(function() {
+        timeLeft--;
 
         if (timeLeft > 0){
             timerEl.textContent = timeLeft;
-
+            
         }
         else{
             clearInterval(timeInterval);
             timerEl.textContent = timeLeft;
+            endQuiz();
 
         }
         
-        timeLeft--;
 
     }, 1000)
 
 }
 
+// ends the quiz
+function endQuiz(){
+    quizEl.setAttribute("class", "hide");
+    scoreEl.textContent = score;
+    endEl.removeAttribute("class", "hide");
+}
